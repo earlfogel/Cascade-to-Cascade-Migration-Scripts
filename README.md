@@ -8,6 +8,28 @@ This script copies assets between sites in Cascade, between
 sites and the Global area, and from one instance of Cascade to another. 
 You can recursively copy folders or containers or copy entire sites. 
 
+Version Compatibility and Working with other Cascade versions:
+==============================================================
+
+This script (v1.6) works with Cascade 6.7 through 7.2
+
+Previous versions include:
+
+- [v1.4](https://github.com/hannonhill/Cascade-to-Cascade-Migration-Scripts/zipball/v1.4) is compatible with Cascade 6.7.x
+- [v1.2](https://github.com/hannonhill/Cascade-to-Cascade-Migration-Scripts/zipball/v1.2) is compatible with Cascade 6.4.x
+
+There are a few places in the code where we list asset types or 
+container types. When Hannon Hill updates Cascade web services, we
+may need to update these lists. 
+
+For example, in Cascade 6.7 structuredDataDefinition was renamed to
+dataDefinition and xhtmlBlock was renamed to xhtmlDataDefinitionBlock.
+
+If you'd like to get this script working with a new version of Cascade, 
+the first place to look is Hannon Hill's web services change log: 
+
+http://www.hannonhill.com/kb/Web-Services/Web%20Services%20Changelog/
+
 Installation:
 =============
 
@@ -53,6 +75,9 @@ Content Type, which uses the "event" Configuration Set, which includes a
 region that contains the "event" Content Type Index Block.  Before you can 
 copy the Block, you have to copy the Content Type and Configuration Set, 
 but before you can copy the Configuration Set, you need to copy the Block. 
+
+Interdependencies are less of an issue since Josh LaMar implemented the
+two pass system.  Thanks Josh.
 
 Limitations and Known Issues:
 =============================
@@ -123,17 +148,19 @@ The main differences between copying assets with this script vs copying them
 in Cascade are:
 
 In Cascade, you can copy assets within the Global area, within a site 
-or between sites, but you can't copy from the Global area to a site or 
-vice versa, and you can't copy from one instance of Cascade to another. 
+or between sites, but not from the Global area to a site or 
+vice versa, and, prior to Cascade 7, you couldn't copy from one instance
+of Cascade to another.
 
 This script can't copy within the Global area or within a site, but it
-can copy between sites or between instances of Cascade.
+can copy between sites, between the Global area and sites, and between 
+instances of Cascade. 
 
 In Cascade, when you copy an asset to a new site, the new
 copy will still refer back to the old site.  For example, if you
 copy a page to a new site, the new page will still use the
 metadata set, content type, configuration set, templates, blocks and
-formats in the old site.  If, on the other hand, you use my script to
+formats in the old site.  If, on the other hand, you use this script to
 copy a page, it will update all those references to point to the new
 site, and if any of those assets don't exist in the new site, it will
 copy them as well.
@@ -141,24 +168,4 @@ copy them as well.
 In Cascade, when you copy assets, they inherit access rights from
 their new parent folder.  When you copy assets with this script, it copies
 their access rights as well.
-
-Working with other Cascade versions:
-====================================
-
-This script works with Cascade 6.7, 6.8 and 6.10.
-
-An older version that works with Cascade 6.4 is also available.
-
-There are a few places in the code where we list all asset types or 
-container types. When Hannon Hill updates Cascade web services, we
-need to update these lists. 
-
-For example, in Cascade 6.7 structuredDataDefinition was renamed to
-dataDefinition and xhtmlBlock was renamed to xhtmlDataDefinitionBlock.
-
-If you'd like to get this script working with a new version of Cascade,
-the first place to look is Hannon Hill's web services
-change log:
-
-http://www.hannonhill.com/kb/Web-Services/Web%20Services%20Changelog/
 
