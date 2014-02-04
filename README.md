@@ -11,7 +11,7 @@ You can recursively copy folders or containers or copy entire sites.
 Version Compatibility and Working with other Cascade versions:
 ==============================================================
 
-This script (v1.6) works with Cascade 6.7 through 7.2
+This script works with Cascade 6.7 through 7.8
 
 Previous versions include:
 
